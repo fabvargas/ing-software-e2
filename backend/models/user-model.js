@@ -1,8 +1,21 @@
 
 export class JsonUserModel {
     users =[
-        {id:1, name:"Alice", email:"alice@gmail.com", password:"alice123"},
-        {id:2, name:"Bob", email:"bob@gmail.com", password:"bob123"},
+        {
+         id:1,
+         name:"Alice", 
+         email:"alice@gmail.com", 
+         password:"alice123",
+         idioma: "ES"
+        },
+        {
+          id:2,
+         name:"Pepe", 
+         email:"pepe@gmail.com", 
+         password:"pepe123",
+         idioma: "EN"
+        },
+       
     ]
 
 
@@ -31,6 +44,7 @@ export class JsonUserModel {
             user.name = updatedInfo.name || user.name;
             user.email = updatedInfo.email || user.email;
             user.password = updatedInfo.password || user.password;
+            user.idioma = updatedInfo.idioma || user.idioma
             return user;
         }
         return null;

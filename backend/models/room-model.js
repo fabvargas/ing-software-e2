@@ -3,9 +3,30 @@
 export class JsonRoomModel {
 
     rooms = [
-        { id: 1, name: 'Room 1', type: "Single" },
-        { id: 2, name: 'Room 2', type: "Premium" },
-        { id: 3, name: 'Room 3', type: "Single" },
+        { id: 1,
+         numero: 10, 
+         categoria: "Single",
+         piso:1,
+         precioDiario: 20.000,
+         idEstadoHabitacion:2
+        },
+        {
+         id: 2,
+         numero: 22, 
+         categoria: "Premium",
+         piso:2,
+         precioDiario: 25.000,
+         idEstadoHabitacion:1
+        },
+        {
+         id: 3,
+         numero: 28, 
+         categoria: "Premium",
+         piso:2,
+         precioDiario: 25.000,
+         idEstadoHabitacion:2  
+        }
+  
     ]
 
     async getAllRooms() {
@@ -23,14 +44,17 @@ export class JsonRoomModel {
     }
 
     async updateRoom(id, updatedInfo) {
-        const room = this.rooms.find(room => room.id === id);
-        if (room) {
-            room.name = updatedInfo.name || room.name;
-            room.type = updatedInfo.type || room.type;
-            return room;
-        }
-        return null;
+    const room = this.rooms.find(room => room.id === id);
+    if (room) {
+        room.numero = updatedInfo.numero ?? room.numero;
+        room.categoria = updatedInfo.categoria ?? room.categoria;
+        room.piso = updatedInfo.piso ?? room.piso;
+        room.precioDiario = updatedInfo.precioDiario ?? room.precioDiario;
+        room.idEstadoHabitacion = updatedInfo.idEstadoHabitacion ?? room.idEstadoHabitacion;
+        return room;
     }
+    return null;
+}
 
     async deleteRoom(id) {
         const index = this.rooms.findIndex(room => room.id === id);
